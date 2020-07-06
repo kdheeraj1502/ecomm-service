@@ -1,6 +1,5 @@
 package ecom.product.api.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,25 +18,17 @@ public class ProductServiceImpl {
 	@Autowired
 	List<Product> products;
 
+	@Autowired
+	Product product;
+	
 	@PostConstruct
 	private void postConstruct() {
-		Product product1 = new Product();
-		Product product2 = new Product();
-		Product product3 = new Product();
-		product1.setAmount(35);
-		product1.setName("Pepsi");
-		product1.setProductId(789l);
-		product1.setAmount(40);
-		product1.setName("Cock");
-		product1.setProductId(345l);
-		product1.setAmount(100);
-		product1.setName("Chips");
-		product1.setProductId(589l);
-		products.add(product1);
-		products.add(product1);
-		addProducts(product1);
-		addProducts(product2);
-		addProducts(product3);
+		product.setAmount(35);
+		product.setName("Pepsi");
+		product.setProductId(789l);
+		product.setDescription("cold drink");
+		products.add(product);
+		addProducts(product);
 	}
 
 	private void addProducts(Product product) {

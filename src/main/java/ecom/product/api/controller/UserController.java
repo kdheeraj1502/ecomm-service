@@ -1,5 +1,6 @@
 package ecom.product.api.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class UserController {
 	@Autowired
     private UserServiceImpl userService;
     
-    @PostMapping("/save")
+    @PostMapping("/add")
     public ResponseEntity<?> save(@RequestBody User user) {
     	User inserted = userService.save(user);
         return ResponseEntity.ok(inserted);
@@ -35,13 +36,12 @@ public class UserController {
         return ResponseEntity.ok(updated);
     }
 
-    @GetMapping("/find")
-    public ResponseEntity<String> findAll() {
-        //return ResponseEntity.ok(userService.findAll());
-    	return ResponseEntity.ok("found");
+    @GetMapping("/findAll")
+    public ResponseEntity<List<User>> findAll() {
+        return ResponseEntity.ok(userService.findAll());
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/find/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") long id) {
     	Optional<User> user = userService.findById(id);
         if(user.isPresent()) {
@@ -50,7 +50,7 @@ public class UserController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<?> deleteById(@PathVariable("id") long id) {
     	userService.deleteById(id);
         return ResponseEntity.accepted().build();

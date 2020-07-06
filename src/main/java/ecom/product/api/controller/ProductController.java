@@ -23,25 +23,25 @@ public class ProductController {
 	@Autowired
     private ProductServiceImpl productService;
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Product product) {
     	Product inserted = productService.save(product);
         return ResponseEntity.ok(inserted);
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<?> update(@RequestBody Product product) {
     	Product updated = productService.save(product);
         return ResponseEntity.ok(updated);
     }
 
 
-    @GetMapping
+    @GetMapping("/findAll")
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(productService.findAll());
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/find/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") long id) {
     	Optional<Product> product = productService.findById(id);
         if(product.isPresent()) {

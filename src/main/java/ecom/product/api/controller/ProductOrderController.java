@@ -52,9 +52,9 @@ public class ProductOrderController {
 		List<OrderedProduct> orderedProducts = new ArrayList<>();
 
 		for (Product prod : itemOrderRequest.getItems()) {
-			Optional<Product> product = productService.findById(prod.getId());
+			Optional<Product> product = productService.findById(prod.getProductId());
 			if (!product.isPresent()) {
-				return ResponseEntity.badRequest().body("invalid productId: " + prod.getId());
+				return ResponseEntity.badRequest().body("invalid productId: " + prod.getProductId());
 			}
 			orderedProducts.add(new OrderedProduct(product.get(), prod.getAmount()));
 		}
