@@ -16,11 +16,11 @@ import lombok.Data;
 @Service
 public class ProductServiceImpl {
 
+	@Autowired
 	List<Product> products;
 
 	@PostConstruct
 	private void postConstruct() {
-		products = new ArrayList<>();
 		Product product1 = new Product();
 		Product product2 = new Product();
 		Product product3 = new Product();

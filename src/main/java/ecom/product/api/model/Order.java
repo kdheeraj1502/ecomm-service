@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@Component
 public class Order extends RootEntity {
 
     private List<OrderedProduct> orderedProducts;

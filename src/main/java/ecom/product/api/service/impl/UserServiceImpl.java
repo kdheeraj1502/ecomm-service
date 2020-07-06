@@ -8,20 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ecom.product.api.model.User;
-import ecom.product.api.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private List<User> userList;
-	
-	@Autowired
-	private User user;
-	
-	UserServiceImpl(){
-		userList.add(user);
-	}
 
 	@Override	
 	public void deleteById(long id) {

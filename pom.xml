@@ -9,13 +9,15 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ecom.product.api</groupId>
-	<artifactId>product-ecom-service</artifactId>
+	<artifactId>ecom-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>product-ecom-service</name>
-	<description>A ecomm service for products</description>
+	<name>ecom-service</name>
+	<description>An ecomm service for products</description>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
